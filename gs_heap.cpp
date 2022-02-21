@@ -228,6 +228,11 @@ int gs_heap::add_value(int value)
 
 int gs_heap::pop_value()
 {
+    if (is_empty())
+    {
+        return GS_HEAP_EMPTY;
+    }
+
     int last_node_value = gs_heap_vector[gs_heap_vector.size() - 1];
     gs_heap_vector[1] = last_node_value;
     gs_heap_vector.resize(gs_heap_vector.size() - 1);
